@@ -9,12 +9,13 @@ import styles from './styles'
 
 const Welcome = ({ name, message = 'Hello, ', navigation }) => {
   // TODO: update time periodically  in case day changes
-  const date = moment().format('MMM Do')
+  const date = moment().format('MMM Do, YYYY')
 
   const gotoProfile = () => {
     navigation.navigate('Profile')
     console.log(navigation)
   }
+  
   return (
     <View style={styles.container}>
       <View style={styles.userInfo}>

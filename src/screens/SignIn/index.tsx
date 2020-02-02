@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { View, Text, SafeAreaView, TextInput as Input, Image, TouchableOpacity } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
+import API from '../../services/API'
 import styles from './styles'
 
 const SignIn = ({ navigation }) => {
@@ -27,6 +28,7 @@ const SignIn = ({ navigation }) => {
     return true
   }
   const handleSubmit = () => {
+    API.createAccount(state).then(console.log)
     isValid(state) ? navigation.navigate('App') : console.log('error')
   }
 

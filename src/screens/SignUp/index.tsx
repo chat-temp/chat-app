@@ -4,21 +4,42 @@ import { AntDesign } from '@expo/vector-icons'
 import styles from './styles'
 
 const SignUp = ({ navigation }) => {
-  const [state, setState] = useState({ email: 'jehfdoe@world.com', password: '' })
+  const [state, setState] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    country: '',
+    preferredLanguage: '',
+  })
 
   const handleTextChange = (input, value) => {
     switch (input) {
+      case 'firstName':
+        setState({ ...state, firstName: value })
+        break
+
+      case 'lastName':
+        setState({ ...state, lastName: value })
+        break
       case 'email':
-        const stateWithNewEmail = { email: value, password: state.password }
-        setState(stateWithNewEmail)
+        setState({ ...state, email: value })
         break
 
       case 'password':
-        const stateWithNewPassword = { password: value, email: state.email }
-        setState(stateWithNewPassword)
+        setState({ ...state, password: value })
         break
 
+      case 'country':
+        setState({ ...state, country: value })
+        break
+
+      case 'preferredLanguage':
+        setState({ ...state, preferredLanguage: value })
+
+        break
       default:
+        throw new Error('ye buddy! you broke me')
         break
     }
   }
@@ -28,6 +49,12 @@ const SignUp = ({ navigation }) => {
   }
 
   const isValid = state => {
+    // TODO: actually validate state and do error handling
+    for (const key in state) {
+      if (state.hasOwnProperty(key) && state[key] === '') {
+        return false
+      }
+    }
     return true
   }
 
@@ -44,9 +71,11 @@ const SignUp = ({ navigation }) => {
           </View>
           <View style={styles.form}>
             <Text style={styles.title}>Changing the world through knowledge sharing.</Text>
-            <Input style={styles.input} onChangeText={text => handleTextChange('email', text)} />
-            <Input style={styles.input} onChangeText={text => handleTextChange('password', text)} />
-            <Input style={styles.input} onChangeText={text => handleTextChange('password', text)} />
+            <Input
+              style={styles.input}
+              onChangeText={text => handleTextChange('firstName', text)}
+            />
+            <Input style={styles.input} onChangeText={text => handleTextChange('lastName', text)} />
             <TouchableOpacity onPress={handleSubmit} style={styles.submit}>
               <Text style={styles.submitTitle}>Sign Up</Text>
             </TouchableOpacity>
