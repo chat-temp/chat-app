@@ -3,7 +3,7 @@ import { ActivityIndicator, AsyncStorage, StatusBar, View } from 'react-native'
 
 const Loading = props => {
   const getToken = async () => {
-    const userToken = await AsyncStorage.getItem('userToken')
+    const userToken = (await AsyncStorage.getItem('userToken')) 
     props.navigation.navigate(userToken ? 'App' : 'Auth')
   }
 

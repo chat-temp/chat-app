@@ -1,6 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
-import { AntDesign } from '@expo/vector-icons'
+import { AntDesign, Ionicons } from '@expo/vector-icons'
 
 // Screens
 import Home from '../screens/Home'
@@ -18,16 +18,18 @@ const AppNavigation = createBottomTabNavigator(
 
         switch (routeName) {
           case 'Home':
-            iconName = focused ? 'home' : 'home'
-            // Sometimes we want to add badges to some icons.
-            // You can check the implementation below.
-            // IconComponent = HomeIconWithBadge
+            iconName = 'home'
+            // focused && (IconComponent = Ionicons)
             break
           case 'Settings':
-            iconName = focused ? 'setting' : 'setting'
+            iconName = 'setting'
+            // focused && (IconComponent = Ionicons)
+
             break
           case 'Profile':
-            iconName = focused ? 'user' : 'user'
+            iconName = 'user'
+            // focused && (IconComponent = Ionicons)
+
             break
           default:
             break
@@ -36,8 +38,8 @@ const AppNavigation = createBottomTabNavigator(
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
+      inactiveTintColor: '#26547C',
+      activeTintColor: '#59C3C3',
     },
   },
 )
