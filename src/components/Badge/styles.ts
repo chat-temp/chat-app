@@ -3,11 +3,12 @@ import { StyleSheet, Dimensions } from 'react-native'
 const { width } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
-  container: {
-    width: width / 3,
-    height: width / 3,
+  badge: { width: width / 3, height: width / 3, borderRadius: width / 6 },
+  small: {
+    width: width / 8,
+    height: width / 8,
+    borderRadius: width / 6,
   },
-  badge: { height: '100%', width: '100%', borderRadius: width / 6 },
 })
 
 export default styles

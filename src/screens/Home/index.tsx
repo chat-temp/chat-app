@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text, SafeAreaView } from 'react-native'
+import Welcome from '../../components/UserWelcome'
+import styles from './styles'
 
 const Home = () => {
   return (
     <SafeAreaView>
-      <View>
-        <Text>hello</Text>
-      </View>
+      <Welcome name="Jehf" />
     </SafeAreaView>
   )
 }
